@@ -33,7 +33,7 @@ export function Profile({getFriends}) {
             formData.append('image', imgFile);
             console.log(formData)
 
-            const res = await fetch(`http://localhost:3000/friendi/uploadpp/${userId}`, {
+            const res = await fetch(`https://friendi-be.onrender.com/friendi/uploadpp/${userId}`, {
                 method : 'PUT',
                 headers : {
                     Authorization : `Bearer ${token}`
@@ -65,7 +65,7 @@ export function Profile({getFriends}) {
 
     const addIdFunc = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/friendi/${userId}/id`, {
+            const res = await fetch(`https://friendi-be.onrender.com/friendi/${userId}/id`, {
                 method : 'PUT',
                 headers : {
                     'Content-Type' : 'application/json'

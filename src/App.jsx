@@ -21,7 +21,7 @@ export function App() {
   
   const getFriends = async () => {
       try {
-          const res = await fetch('http://localhost:3000/friendi/getfiles', {
+          const res = await fetch('https://friendi-be.onrender.com/friendi/getfiles', {
               method : 'POST',
               headers : {
                   'Content-Type' : 'application/json'

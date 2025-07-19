@@ -28,7 +28,7 @@ export function Home({getFriends}) {
     useEffect(() => {
         const home = async () => {
             try {
-                const req = await fetch(`http://localhost:3000/friendi/home`, {
+                const req = await fetch(`https://friendi-be.onrender.com/friendi/home`, {
                     headers : {
                         'Authorization' : `Bearer ${token}`
                     }
@@ -47,7 +47,7 @@ export function Home({getFriends}) {
 
     const retrieveDetailsFunc = async () => {
         try {
-            const res = await fetch('http://localhost:3000/friendi/retrieve', {
+            const res = await fetch('https://friendi-be.onrender.com/friendi/retrieve', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json'
@@ -64,7 +64,7 @@ export function Home({getFriends}) {
     };
 
     const saveToFolder = async () => {
-        const res = await fetch('http://localhost:3000/friendi/savefile', {
+        const res = await fetch('https://friendi-be.onrender.com/friendi/savefile', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json',

@@ -16,7 +16,7 @@ export function Signup() {
         };
 
         try {
-            const res = await fetch('http://localhost:3000/friendi/signup', {
+            const res = await fetch('https://friendi-be.onrender.com/friendi/signup', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json'

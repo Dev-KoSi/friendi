@@ -38,7 +38,7 @@ export function MyDetails () {
         };
 
         try {
-            const res = await fetch(`http://localhost:3000/friendi/${userId}/adddetails`, {
+            const res = await fetch(`https://friendi-be.onrender.com/friendi/${userId}/adddetails`, {
                 method : 'PUT',
                 headers : {
                     'Content-Type' : 'application/json'

@@ -27,7 +27,7 @@ export function Login() {
         };
 
         try {
-            const res = await fetch('http://localhost:3000/friendi/login', {
+            const res = await fetch('https://friendi-be.onrender.com/friendi/login', {
                 method : 'POST',
                 headers : {
                     'Content-Type' : 'application/json'

@@ -10,7 +10,7 @@ export function Folder({getFriends}) {
 
     const deleteFile = async (delId) => {
         try {
-            const res = await fetch(`http://localhost:3000/friendi/delete/${delId}`, {
+            const res = await fetch(`https://friendi-be.onrender.com/friendi/delete/${delId}`, {
                 method : `DELETE`,
                 headers : {
                     "Content-Type" : "application/json",
