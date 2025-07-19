@@ -1,0 +1,201 @@
+.profile-page{
+    margin: 20px 10px;
+}
+
+.profile-header{
+    display: flex;
+}
+.profile-pic {
+    width: 120px;
+    height: 100px;
+    color: #03624c;
+    overflow: hidden;
+    border: 1px solid #03624c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    font-weight: bold;
+    user-select: none;
+}
+.profile-pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.edit-pp{
+    margin: 70px 0px 0px -15px;
+}
+.edit-pp svg{
+    background-color: #03624c;
+    border: 0.5px solid #03624c;
+}
+.home-link{
+    height: fit-content;
+}
+.choose-img{
+    margin: 10px 0px 20px 0px;
+}
+.choose-img-input{
+    width: fit-content;
+}
+.choose-img input{
+    width: fit-content;
+}
+.choose-img-btn button{
+    border: none;
+    background-color: #03624c;
+    padding: 5px;
+    cursor: pointer;
+}
+.gap{
+    width: 100%;
+}
+.home-logo{
+    height: fit-content;
+}
+.home-logo svg{
+    color: #03624c;
+}
+
+.gen-id{
+    display: flex;
+    margin: 10px 0px 30px 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #03624c;
+    font-size: 18px;
+}
+.gen-id span{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+}
+.gen-btn{
+    margin-left: 30px;
+    display: flex;
+}
+.gen-btn div{
+    margin: 0px 2px;
+}
+.id-btn button{
+    border: none;
+    background-color: #03624c;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+.folder-link{
+    text-decoration: none;
+    color: white;
+}
+.folder-link svg{
+    color: white;
+}
+.my-friends{
+    font-size: 20px;
+    background-color: #03624c;
+    padding: 10px 5px;
+    margin: 0px 0px 100px 0px;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
+}
+.blur-border :hover{
+    text-decoration: underline;
+}
+
+/* Folder style */
+.folder-header{
+    display: flex;
+    background-color: #03624c;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+.num-files{
+    width: 100%;
+    text-align: center;
+}
+.num-files span{
+    font-family: 'Courier New', Courier, monospace;
+}
+.home-logo-folder svg{
+    color: white;
+}
+.each-file{
+    background-color: white;
+    border: 1px solid #03624c;
+    margin: 20px 10px;
+    padding: 10px 10px 0px 10px;
+    font-size: 18px;
+}
+.each-file div{
+    margin-bottom: 5px;
+}
+.delete-friend{
+    text-align: right;
+}
+.delete-friend :hover{
+    background-color: red;
+}
+.delete-friend button{
+    border: none;
+    background-color: #03624c;
+    color: white;
+    padding: 5px;
+}
+/*  */
+.my-d-txt{
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    border-bottom: 1px solid gray;
+}
+.personal-details{
+    border: 1px solid lightgray;
+    font-size: 18px;
+    padding: 10px;
+    margin: 50px 0px;
+}
+.personal-details button{
+    width: 100%;
+    border: none;
+    background-color: lightgray;
+    cursor: pointer;
+}
+.personal-details div{
+    padding: 10px 0px;
+    display: flex;
+    white-space: nowrap;
+}
+.personal-details div :nth-child(2){
+    width: 100%;
+}
+.personal-details div input{
+    width: 100%;
+    margin-left: 10px;
+}
+.save, .edit{
+    display: none;
+}
+
+.logout{
+    margin: 50px 0px 10px 0px;
+}
+.logout button{
+    width: 100%;
+    border: none;
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    padding: 5px 0px;
+    cursor: pointer;
+    font-size: 18px;
+}
