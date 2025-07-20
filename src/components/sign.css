@@ -1,5 +1,3 @@
-/* SIGN UP */
-
 .sign-page{
     position: relative;
     top: 100px;
@@ -19,42 +17,29 @@
 .signup-page .txt, .login-page .txt{
     margin: 10px 0px 20px 0px;
     font-size: 30px;
+    color: black;
 }
 .show-password{
     display: flex;
     margin-top: 5px;
 }
-input[type="checkbox"] {
-    margin-top: -0.0px;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    border: 1px solid black;
-    background-color: white;
+.show-password input{
     cursor: pointer;
-    position: relative;
 }
-
-input[type="checkbox"]:checked {
-    background-color: #03624c;
-}
-
-input[type="checkbox"]:checked::after {
-    content: '✔';
-    color: white;
-    position: absolute;
-    left: 2px;
-    top: -1px;
-}
-
-
 .signup-btn button, .login-btn button{
     width: 100%;
     border: none;
     margin-top: 20px;
     background-color: #03624c;
     padding: 5px 0px;
-    /* border-radius: 20px; */
     cursor: pointer;
     font-size: 18px;
+    color: white;
+}
+.sign-othwewise{
+    margin-top: 25px;
+    font-size: 15.5px;
+}
+.sign-othwewise span{
+    cursor: pointer;
 }

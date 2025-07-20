@@ -51,6 +51,7 @@
     background-color: #03624c;
     padding: 5px;
     cursor: pointer;
+    color: white;
 }
 .gap{
     width: 100%;
@@ -149,6 +150,22 @@
     color: white;
     padding: 5px;
 }
+
+.add-friend-btn-folder{
+    position: relative;
+    top: 450px;
+    width: 100%;
+    text-align: center;
+}
+.add-friend-btn-folder button{
+    border: none;
+    background-color: #03624c;
+    width: 50%;
+    padding: 10px 0px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
 /*  */
 .my-d-txt{
     width: fit-content;
@@ -168,6 +185,11 @@
     width: 100%;
     border: none;
     background-color: lightgray;
+    cursor: pointer;
+    border: none;
+    background-color: #03624c;
+    color: white;
+    padding: 5px;
     cursor: pointer;
 }
 .personal-details div{
@@ -198,4 +220,7 @@
     padding: 5px 0px;
     cursor: pointer;
     font-size: 18px;
+}
+.logout :hover{
+    background-color: darkred;
 }

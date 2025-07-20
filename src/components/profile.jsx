@@ -45,6 +45,10 @@ export function Profile({getFriends}) {
             const imageUrl = data?.image?.url;
             console.log(imageUrl);
 
+            if(data) {
+                return alert(data.message);
+            }
+
             if (!res.ok || !imageUrl) {
             console.error("Upload failed or invalid response:", data);
             return alert("Something went wrong! Please try again.");
@@ -63,7 +67,7 @@ export function Profile({getFriends}) {
         }
     }
 
-    const addIdFunc = async () => {
+    const changeIdFunc = async () => {
         try {
             const res = await fetch(`https://friendi-be.onrender.com/friendi/${userId}/id`, {
                 method : 'PUT',
@@ -74,15 +78,13 @@ export function Profile({getFriends}) {
             });
 
             const result = await res.json()
-            console.log(result.id)
+            console.log(result)
                         
             localStorage.removeItem('my-id');
             localStorage.setItem('my-id', result.id);
 
-            if(result.success === false) {
-                alert(`${result.message}`)
-            } else if(result.success === true) {
-                alert(`${result.message}`)
+            if(result) {
+                return alert(result.message);
             }
         } catch (error) {
             console.log(error)
@@ -137,7 +139,7 @@ export function Profile({getFriends}) {
             </div>}
             
             <div>
-                <IdGenerator id={id} setId={setId} addIdFunc={addIdFunc}/>
+                <IdGenerator id={id} setId={setId} changeIdFunc={changeIdFunc}/>
             </div>
 
             <div className="blur-border">
@@ -145,7 +147,7 @@ export function Profile({getFriends}) {
                 <div className="my-friends" onClick={() => {
                     getFriends();
                 }}>
-                    <div>My Friends</div>
+                    <div>Friends</div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
         <path d="M7.5 19.5C7.5 18.5344 7.82853 17.5576 8.63092 17.0204C9.59321 16.3761 10.7524 16 12 16C13.2476 16 14.4068 16.3761 15.3691 17.0204C16.1715 17.5576 16.5 18.5344 16.5 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
         <circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>

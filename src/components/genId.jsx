@@ -23,26 +23,14 @@ function generateMixedId() {
     return combined.join('');
 }
 
-export function IdGenerator({id, setId, addIdFunc}) {
+export function IdGenerator({id, setId, changeIdFunc}) {
     console.log(id)
 
     const handleGenerate = () => {
         const newId = generateMixedId();
 
         setId(newId);
-        
-        // window.location.reload();
     };
-
-    useEffect(() => {
-        setTimeout(() => {
-            if(id === '') {
-                handleGenerate();
-
-                alert(`Please 'Save' your ID immediately or 'Change' before saving.`)
-            }
-        }, 1000);
-    }, []);
     
     return (
         <div className='gen-id'>
@@ -57,7 +45,7 @@ export function IdGenerator({id, setId, addIdFunc}) {
 
                 <div className=" id-btn hover">
                     <button  onClick={() => {
-                        addIdFunc();
+                        changeIdFunc();
                 }}>Save</button>
                 </div>
             </div>)}

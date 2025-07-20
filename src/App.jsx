@@ -32,20 +32,12 @@ export function App() {
           const result = await res.json();
           console.log(result.getfiles);
 
-          if(result.getfiles != null) {
+          if(result.getfiles != null || result.getfiles.length !== 0 || result.getfiles !== "undefined") {
               localStorage.removeItem('friends-files');
               
-              setTimeout(() => {
-                  localStorage.setItem('friends-files', JSON.stringify(result.getfiles));
+                localStorage.setItem('friends-files', JSON.stringify(result.getfiles));
 
-                  window.location.reload();
-              }, 1000);
-          } else {
-              navigate('/profile');
-
-              setTimeout(() => {
-                  alert(`Folder is empty!`);
-              }, 1000);
+                window.location.reload();
           }
 
       } catch (error) {

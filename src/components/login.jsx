@@ -15,8 +15,6 @@ export function Login() {
             navigate('/');
 
             setLoginSuccess(null);
-            
-            window.location.reload();
         }
     }, [loginSuccess]);
 
@@ -39,8 +37,8 @@ export function Login() {
 
             console.log(result);
 
-            if(result.success === false) {
-                return alert(result.message);
+            if(result) {
+                alert(result.message);
             }
 
             setLoginSuccess((l) => l = result.success);

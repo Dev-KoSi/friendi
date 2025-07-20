@@ -1,11 +1,12 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
 svg{
     cursor: pointer;
 }
 button{
     cursor: pointer;
-}
-::checkmark{
-    background-color: #00df82;
 }
 .Link{
     text-decoration: none;
@@ -30,12 +31,4 @@ button{
     padding: 10px 0px;
     border: none;
     outline: none;
-}
-
-.sign-othwewise{
-    margin-top: 25px;
-    font-size: 16px;
-}
-.sign-othwewise span{
-    cursor: pointer;
 }

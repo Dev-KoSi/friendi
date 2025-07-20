@@ -57,13 +57,17 @@ export function Home({getFriends}) {
 
             const result = await res.json();
             setRetrievedDetails(result.details);
+
+            if(result) {
+                return alert(result.message);
+            }
             
         } catch (error) {
             console.log(error);
         }
     };
 
-    const saveToFolder = async () => {
+    const saveToFriendsFunc = async () => {
         const res = await fetch('https://friendi-be.onrender.com/friendi/savefile', {
             method : 'POST',
             headers : {
@@ -76,7 +80,9 @@ export function Home({getFriends}) {
         const result = await res.json();
         console.log(result.file);
 
-        alert(`${result.message}`)
+        if(result) {
+            return alert(result.message);
+        }
     }
 
     return (
@@ -105,7 +111,7 @@ export function Home({getFriends}) {
                         navigate('/login');
 
                         localStorage.clear();
-                        alert(`You have logged out, please log in !`)
+                        alert(`You have logged out, please log in.`)
                     }}>Log out</div>
                 </div>
             </div>}
@@ -211,10 +217,10 @@ export function Home({getFriends}) {
 
                 <div className="r-f-d-btn add-to-folder hover">
                         <button onClick={() => {
-                            saveToFolder();
+                            saveToFriendsFunc();
 
                             setFileSaved(false);
-                        }}>Save</button>
+                        }}>Save to Friends</button>
                 </div>
             </div>}
         </div>

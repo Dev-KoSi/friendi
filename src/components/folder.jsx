@@ -8,7 +8,7 @@ export function Folder({getFriends}) {
 
     const [token, setToken] = useState(() => localStorage.getItem('token'));
 
-    const deleteFile = async (delId) => {
+    const deleteFriend = async (delId) => {
         try {
             const res = await fetch(`https://friendi-be.onrender.com/friendi/delete/${delId}`, {
                 method : `DELETE`,
@@ -21,6 +21,10 @@ export function Folder({getFriends}) {
             const result = await res.json();
 
             console.log(result);
+
+            if(result.success === true) {
+                getFriends();
+            }
             
         } catch (error) {
             console.log(error);
@@ -36,7 +40,7 @@ export function Folder({getFriends}) {
                         <path d="M18.5 18C18.5 18 12.5 13.5811 12.5 12C12.5 10.4188 18.5 6 18.5 6" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                     </svg>
                 </div></Link>
-                <div className="num-files">{file && file.length > 1 ? `${file.length} Friends` : `${file.length} Friend`}</div>
+                <div className="num-files">{file && file.length == 1 ? `${file.length} Friend` : `${file.length} Friends`}</div>
                 <Link className="home-link" to={'/'}>
                     <div className="home-logo-folder">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
@@ -73,12 +77,19 @@ export function Folder({getFriends}) {
 
                     <div className="delete-friend">
                         <button onClick={() => {
-                            deleteFile(f._id);
+                            deleteFriend(f._id);
                             getFriends();
                         }}>Delete</button>
                     </div>
                 </div>
             ))}
+
+            {file.length === 0 && 
+                <Link className="home-link" to={'/'}>
+                    <div className="add-friend-btn-folder hover">
+                        <button>Add a friend</button>
+                    </div>
+                </Link>}
             </div>
 
 
