@@ -25,6 +25,7 @@
 }
 .show-password input{
     cursor: pointer;
+    margin-top: -1px;
 }
 .signup-btn button, .login-btn button{
     width: 100%;
@@ -38,7 +39,7 @@
 }
 .sign-othwewise{
     margin-top: 25px;
-    font-size: 15.5px;
+    font-size: 14.5px;
 }
 .sign-othwewise span{
     cursor: pointer;
