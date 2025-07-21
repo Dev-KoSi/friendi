@@ -15,7 +15,8 @@ import { Folder } from './components/folder';
 
 export function App() {
   const [token, setToken] = useState(() => localStorage.getItem('token'));
-  console.log(token);
+
+  const [file, setFile] = useState(() => JSON.parse(localStorage.getItem('friends-files')) || []);
     
   const [userId, setUserId] = useState(() => localStorage.getItem('user-id'));
   
@@ -30,14 +31,12 @@ export function App() {
           });
 
           const result = await res.json();
-          console.log(result.getfiles);
 
-          if(result.getfiles != null || result.getfiles.length !== 0 || result.getfiles !== "undefined") {
-              localStorage.removeItem('friends-files');
+          if(result.success === true) {
               
                 localStorage.setItem('friends-files', JSON.stringify(result.getfiles));
-
-                window.location.reload();
+                
+                setFile(result.getfiles);
           }
 
       } catch (error) {
@@ -82,7 +81,7 @@ export function App() {
       path : '/folder',
       element : (
         <div>
-          <Folder getFriends={getFriends}/>
+          <Folder getFriends={getFriends} file={file}/>
         </div>
       )
     }

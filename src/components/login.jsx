@@ -35,8 +35,6 @@ export function Login() {
 
             const result = await res.json();
 
-            console.log(result);
-
             if(result) {
                 alert(result.message);
             }

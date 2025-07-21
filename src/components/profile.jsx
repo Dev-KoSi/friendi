@@ -13,15 +13,10 @@ export function Profile({getFriends}) {
     const [userId, setUserId] = useState(() => localStorage.getItem('user-id'));
     
     const [imgURL, setImgURL] = useState(() => localStorage.getItem('img-url'));
-    // console.log(imgURL);
 
     const [profilePic, setProfilePic] = useState(() => localStorage.getItem('useremail'));
-    // console.log(profilePic);
-
-    const navigate = useNavigate();
 
     const [id, setId] = useState(() => localStorage.getItem('my-id'));
-    console.log(id)
 
     const updateImgFunc = async () => {
         try {
@@ -31,7 +26,6 @@ export function Profile({getFriends}) {
 
             const formData = new FormData();
             formData.append('image', imgFile);
-            console.log(formData)
 
             const res = await fetch(`https://friendi-be.onrender.com/friendi/uploadpp/${userId}`, {
                 method : 'PUT',
@@ -43,10 +37,9 @@ export function Profile({getFriends}) {
 
             const data = await res.json();
             const imageUrl = data?.image?.url;
-            console.log(imageUrl);
 
             if(data) {
-                return alert(data.message);
+                alert(data.message);
             }
 
             if (!res.ok || !imageUrl) {
@@ -55,8 +48,7 @@ export function Profile({getFriends}) {
             }
 
             setImgURL(imageUrl);
-
-            localStorage.removeItem("img-url");
+            
             localStorage.setItem("img-url", imageUrl);
 
             setChooseImg((c) => !c);
@@ -77,14 +69,12 @@ export function Profile({getFriends}) {
                 body : JSON.stringify({id})
             });
 
-            const result = await res.json()
-            console.log(result)
-                        
-            localStorage.removeItem('my-id');
+            const result = await res.json();
+            
             localStorage.setItem('my-id', result.id);
 
             if(result) {
-                return alert(result.message);
+                alert(result.message);
             }
         } catch (error) {
             console.log(error)

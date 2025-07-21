@@ -24,8 +24,6 @@ function generateMixedId() {
 }
 
 export function IdGenerator({id, setId, changeIdFunc}) {
-    console.log(id)
-
     const handleGenerate = () => {
         const newId = generateMixedId();
 

@@ -8,13 +8,12 @@ export function MyDetails () {
 
     const [myDetails, setMyDetails] = useState(JSON.parse(localStorage.getItem('user-details')));
 
-    // console.log(myDetails);
-    
     useEffect(() => {
-        localStorage.removeItem('user-details');
-
-        localStorage.setItem('user-details', JSON.stringify(myDetails));
+        if (myDetails) {
+            localStorage.setItem('user-details', JSON.stringify(myDetails));
+        }
     }, [myDetails]);
+
 
     const [name, setName] = useState(myDetails ? myDetails.name : '');
     const [email, setEmail] = useState(myDetails ? myDetails.email : '');
@@ -24,8 +23,6 @@ export function MyDetails () {
     const [otherlink, setOtherlink] = useState(myDetails ? myDetails.otherlink : '');
 
     const [userId, setUserId] = useState(() => localStorage.getItem('user-id'));
-    // console.log(userId);
-
 
     const addDetailsFunc = async () => {
         const details = {
@@ -49,8 +46,6 @@ export function MyDetails () {
             const result = await res.json();
 
             setMyDetails((d) => d = result.details);
-
-            console.log(myDetails);
 
             if(result.success === false) {
                 alert(`${result.message}`)

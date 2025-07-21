@@ -13,8 +13,6 @@ export function Home({getFriends}) {
     
     const [token, setToken] = useState(() => localStorage.getItem('token'));
     const navigate = useNavigate();
-
-    console.log(retrievedDetails)
     
     useEffect(() => {
 
@@ -35,8 +33,6 @@ export function Home({getFriends}) {
                 });
 
                 const res = await req.json();
-
-                console.log(res);
             } catch (error) {
                 console.log(error);
             }
@@ -59,7 +55,7 @@ export function Home({getFriends}) {
             setRetrievedDetails(result.details);
 
             if(result) {
-                return alert(result.message);
+                alert(result.message);
             }
             
         } catch (error) {
@@ -68,20 +64,23 @@ export function Home({getFriends}) {
     };
 
     const saveToFriendsFunc = async () => {
-        const res = await fetch('https://friendi-be.onrender.com/friendi/savefile', {
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json',
-                'Authorization' : `Bearer ${token}`
-            },
-            body : JSON.stringify(retrievedDetails)
-        });
+        try {
+            const res = await fetch('https://friendi-be.onrender.com/friendi/savefile', {
+                method : 'POST',
+                headers : {
+                    'Content-Type' : 'application/json',
+                    'Authorization' : `Bearer ${token}`
+                },
+                body : JSON.stringify(retrievedDetails)
+            });
 
-        const result = await res.json();
-        console.log(result.file);
+            const result = await res.json();
 
-        if(result) {
-            return alert(result.message);
+            if(result) {
+                alert(result.message);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -120,6 +119,7 @@ export function Home({getFriends}) {
                 {!menu && <div className="menu">
                     <svg onClick={() => {
                         setMenu((m) => !m);
+                        setRetrieve(false);
                     }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#ffffff" fill="none">
                         <path d="M4 5L20 5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                         <path d="M4 12L20 12" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -151,6 +151,7 @@ export function Home({getFriends}) {
                 <div className="add-friend-btn hover">
                     <button onClick={() => {
                         setRetrieve(r => !r);
+                        setMenu(false);
                         setRetrievedDetails(null);
                         setFileSaved(true);
                     }}>Add a friend</button>

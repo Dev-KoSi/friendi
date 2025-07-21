@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-export function Folder({getFriends}) {
-    const [file, setFile] = useState(() => JSON.parse(localStorage.getItem('friends-files')) || []);
-    console.log(file);
+export function Folder({getFriends, file}) {
 
     const [token, setToken] = useState(() => localStorage.getItem('token'));
 
@@ -19,8 +17,6 @@ export function Folder({getFriends}) {
             });
 
             const result = await res.json();
-
-            console.log(result);
 
             if(result.success === true) {
                 getFriends();

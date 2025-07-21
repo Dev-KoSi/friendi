@@ -142,11 +142,11 @@
     text-align: right;
 }
 .delete-friend :hover{
-    background-color: red;
+    background-color: darkred;
 }
 .delete-friend button{
     border: none;
-    background-color: #03624c;
+    background-color: red;
     color: white;
     padding: 5px;
 }
@@ -199,10 +199,13 @@
 }
 .personal-details div :nth-child(2){
     width: 100%;
+    margin-left: 5px;
+    font-style: italic;
 }
 .personal-details div input{
     width: 100%;
     margin-left: 10px;
+    outline: none;
 }
 .save, .edit{
     display: none;
@@ -223,4 +226,14 @@
 }
 .logout :hover{
     background-color: darkred;
+}
+
+@media screen and (max-width: 767px) {
+    .profile-pic {
+        width: 100px;
+        height: 70px;
+    }
+    .edit-pp{
+        margin: 50px 0px 0px -17px;
+    }
 }

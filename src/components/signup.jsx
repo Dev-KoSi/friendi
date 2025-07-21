@@ -30,24 +30,12 @@ export function Signup() {
                 navigate('/login');
 
                 alert(result.message);
-
-                window.location.reload();
             } else if(result.success === false) {
                 alert(result.message);
             }
         } catch (error) {
             console.log(error)
         }
-    }
-
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    function isValidPassword(password) {
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
-        return passwordRegex.test(password);
     }
 
 
