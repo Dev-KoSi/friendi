@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation,
   useNavigate,
 } from 'react-router-dom';
 import { useState } from 'react';
@@ -11,10 +12,26 @@ import { Profile } from './components/profile';
 import { Signup } from './components/signup';
 import { useEffect } from 'react';
 import { Folder } from './components/folder';
-
+import { NavBar } from './components/navBar';
 
 export function App() {
-  const [token, setToken] = useState(() => localStorage.getItem('token'));
+  // const [token, setToken] = useState(() => localStorage.getItem('token'));
+
+  const expiredToken = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+      const loginTime = localStorage.getItem('loginTime');
+      const aDay = 1000 * 60 * 60 * 24;
+      const now = Date.now();
+
+      if (loginTime && now - parseInt(loginTime) >= aDay) {
+        
+        localStorage.clear();
+        window.location.href = '/login';
+      }
+    }, [location]);
+  }
 
   const [file, setFile] = useState(() => JSON.parse(localStorage.getItem('friends-files')) || []);
     
@@ -49,7 +66,8 @@ export function App() {
       path : '/',
       element : (
         <div>
-          <Home getFriends={getFriends}/>
+          <NavBar/>
+          <Home getFriends={getFriends} expiredToken={expiredToken}/>
         </div>
       )
     },
@@ -73,7 +91,7 @@ export function App() {
       path : '/profile',
       element : (
         <div>
-          <Profile getFriends={getFriends}/>
+          <Profile getFriends={getFriends} expiredToken={expiredToken}/>
         </div>
       )
     },
@@ -81,7 +99,7 @@ export function App() {
       path : '/folder',
       element : (
         <div>
-          <Folder getFriends={getFriends} file={file}/>
+          <Folder getFriends={getFriends} file={file} expiredToken={expiredToken}/>
         </div>
       )
     }

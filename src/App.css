@@ -32,3 +32,35 @@ button{
     border: none;
     outline: none;
 }
+
+@media screen and (max-width: 1023px) {
+    .navBar{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .menu{
+        display: none;
+    }
+    #f-t-h{
+        width: 100%;
+        font-size: 30px;
+    }
+    .navBar{
+        position: fixed;
+        background-color: #03624c;
+        height: 100vh;
+        top: 7%;
+        padding: 20px 30px 0px 10px;
+        font-size: 22px;
+    }
+    #push-logout{
+        height: 65vh;
+    }
+    .navBar div{
+        margin-bottom: 20px;
+    }
+
+}

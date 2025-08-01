@@ -52,6 +52,9 @@ export function Login() {
             localStorage.setItem('img-url', result.image.url);
 
             localStorage.setItem('user-details', JSON.stringify(result.details));
+
+            localStorage.setItem('loginTime', Date.now().toString());
+            
         } catch (error) {
             console.log(error);
         }

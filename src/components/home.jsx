@@ -3,7 +3,10 @@ import './home.css'
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-export function Home({getFriends}) {
+export function Home({getFriends, expiredToken}) {
+    
+    expiredToken();
+
     const [menu, setMenu] = useState(false);
     const [retrieve, setRetrieve] = useState(false);
     const [id, setId] = useState('');
@@ -135,7 +138,7 @@ export function Home({getFriends}) {
                     </svg>
                 </div>}
 
-                <div style={{color : "white"}} className="friendi-txt-home">
+                <div style={{color : "white"}} className="friendi-txt-home" id="f-t-h">
                     Friend!
                 </div>
 
